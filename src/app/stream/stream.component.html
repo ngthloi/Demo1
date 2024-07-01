@@ -1,0 +1,12 @@
+<div class="video-container" #videoElement>
+  <img *ngIf="!isError" style="width: 100%;" [src]="displaySrc" alt="MJPEG Stream">
+  <img *ngIf="isError" class="error-image" [src]="errorSrc" alt="Error Image">
+  <canvas #pauseCanvas class="pause-canvas"></canvas>
+  <div class="controls">
+    <button (click)="playStream()" class="control-btn">Play</button>
+    <button (click)="pauseStream()" class="control-btn">Pause</button>
+    <button (click)="toggleFullScreen()" class="control-btn">
+      {{ isFullScreen ? 'Exit Full Screen' : 'Full Screen' }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,174 @@
+.timeline-container {
+  position: relative;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  z-index: 10; /* Ensure the timeline is below the error overlay */
+}
+
+.current-time {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #555;
+  font-weight: 500;
+}
+
+.current-date {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 600;
+}
+
+.timeline-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.select-dropdown {
+  margin: 0 10px;
+}
+
+.hours {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+.hour {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  width: 4.17%; /* Each hour takes up 4.17% of the width */
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  height: 150px; /* Adjust the height according to your timeline height */
+  background-color: #f1f1f1;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start; /* Align items to the start */
+  transition: opacity 0.5s ease;
+  z-index: 10; /* Ensure the timeline is below the error overlay */
+}
+
+.timeline.fade-out {
+  opacity: 0;
+}
+
+.timeline.fade-in {
+  opacity: 1;
+}
+
+.events {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: hidden;
+  align-items: flex-start; /* Align items to the start */
+  padding: 10px;
+}
+
+.timeline-event {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.timeline-event:hover {
+  transform: scale(1.5);
+}
+
+.timeline-line {
+  width: 30px;
+  height: 10px;
+  background-color: #28a745;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.timeline-line.out {
+  background-color: #dc3545;
+}
+
+.event-details-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.event-details, .events-in-hour {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0 10px;
+  z-index: 10; /* Ensure details are below the error overlay */
+}
+
+.event-details p, .events-in-hour ul {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.event-image {
+  margin-top: 10px;
+  max-width: 70px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.events-in-hour ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.events-in-hour li {
+  text-align: left;
+  margin: 5px 0;
+}
+
+.event-index {
+  color: blue;
+  margin-right: 5px;
+}
+
+/* Add media query for smaller screens */
+@media (max-width: 1000px) {
+  .hour {
+    font-size: 0;
+  }
+
+  .hour::before {
+    content: attr(data-hour);
+    font-size: 0.9rem;
+    color: #666;
+  }
+}

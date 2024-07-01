@@ -1,0 +1,54 @@
+<div class="timeline-container">
+  <!-- Hiển thị thời gian hiện tại -->
+  <div class="current-time">{{ currentTime }}</div>
+  
+  <div class="current-date">{{ formattedSelectedDate }}</div>
+
+  <div class="timeline-controls">
+    <select class="select-dropdown" [(ngModel)]="selectedDay" (change)="onDateChange()">
+      <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+    </select>
+    <select class="select-dropdown" [(ngModel)]="selectedMonth" (change)="onDateChange()">
+      <option *ngFor="let month of months" [value]="month">{{ monthNames[month - 1] }}</option>
+    </select>
+    <select class="select-dropdown" [(ngModel)]="selectedYear" (change)="onDateChange()">
+      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
+  </div>
+
+  <div class="hours">
+    <div class="hour" *ngFor="let hour of hours" [attr.data-hour]="hour.slice(0, 2)">{{ hour }}</div>
+  </div>
+
+  <div class="timeline" [ngClass]="fadeClass">
+    <div class="events">
+      <div *ngFor="let event of filteredEvents" class="timeline-event" 
+           [style.left]="calculatePosition(event.timestamp)" 
+           [style.top]="calculateVerticalPosition(event.timestamp)">
+        <div class="timeline-line" 
+             [ngClass]="event.type" 
+             [title]="'Camera: ' + event.camera_code + '\nTime: ' + formatDate(event.timestamp)"
+             (click)="onEventClick(event)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-details-container">
+    <div *ngIf="selectedEvent" class="event-details">
+      <p>Type: {{ selectedEvent.type }}</p>
+      <p>Line ID: {{ selectedEvent.line_id }}</p>
+      <p>Thời gian: {{ formattedEventDate }}</p>
+      <img *ngIf="selectedEventImageUrl" [src]="selectedEventImageUrl" alt="Event Image" class="event-image" />
+    </div>
+
+    <div *ngIf="eventsInHour.length > 0" class="events-in-hour">
+      <h3>Events in the same hour:</h3>
+      <ul>
+        <li *ngFor="let event of eventsInHour; let i = index">
+          <span class="event-index">{{ i + 1 }}.</span>{{ formatDate(event.timestamp) }} - Camera: {{ event.camera_code }} - Type: {{ event.type }} - Line ID: {{ event.line_id }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

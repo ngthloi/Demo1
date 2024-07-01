@@ -1,0 +1,71 @@
+{
+  "Camera": [
+    {
+      "camera_code": "http://10.70.39.179:55555/1",
+      "timestamp": 1718348400, 
+      "type": "in",
+      "line_id": "1"
+    },
+    {
+      "camera_code": "http://10.70.39.179:55555/2",
+      "timestamp": 1718348410, 
+      "type": "out",
+      "line_id": "2"
+    },
+    {
+      "camera_code": "http://10.70.39.179:55555/3",
+      "timestamp": 1718348420, 
+      "type": "out",
+      "line_id": "3"
+    },
+    {
+      "camera_code": "http://10.70.39.179:55555/4",
+      "timestamp": 1718348550, 
+      "type": "out",
+      "line_id": "4"
+    },
+    {
+      "camera_code": "http://10.70.39.179:55555/4",
+      "timestamp": 1718323200, 
+      "type": "in",
+      "line_id": "5"
+    },
+    {
+      "camera_code": "http://10.70.39.179:55555/4",
+      "timestamp": 1718348430, 
+      "type": "in",
+      "line_id": "6"
+    },
+    {
+      "camera_code": "http://10.70.39.179:55555/4",
+      "timestamp": 1718350230, 
+      "type": "out",
+      "line_id": "7"
+    },
+    {
+      "camera_code": "http://10.70.39.179:55555/4",
+      "timestamp": 1718373640, 
+      "type": "out",
+      "line_id": "8"
+    },
+    {
+      "camera_code": "http://10.70.39.179:55555/4",
+      "timestamp": 1718373635, 
+      "type": "in",
+      "line_id": "9"
+    },
+    {
+      "camera_code": "http://10.70.39.179:55555/4",
+      "timestamp": 1718348440, 
+      "type": "in",
+      "line_id": "10"
+    },
+    {
+      "camera_code": "http://10.70.39.179:55555/4",
+      "timestamp": 171834843, 
+      "type": "in",
+      "line_id": "11"
+    }
+
+  ]
+}
